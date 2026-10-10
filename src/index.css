@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --vapor-pink: #ff2a85;
+    --vapor-cyan: #00f0ff;
+    --vapor-purple: #9d4edd;
+    --vapor-yellow: #ffb703;
+    --vapor-dark: #0b001a;
+  }
+}
+
+/* Custom fonts */
+.font-arcade {
+  font-family: 'Press Start 2P', 'Courier New', Courier, monospace;
+}
+
+.font-synth {
+  font-family: 'Orbitron', system-ui, -apple-system, sans-serif;
+}
+
+/* Retro CRT scanlines */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.45) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 42, 133, 0.04) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 21;
+}
+
+/* CRT Screen curvature vignette */
+.crt-screen {
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85),
+              inset 0 0 100px rgba(11, 0, 26, 0.9),
+              0 0 25px rgba(255, 42, 133, 0.25);
+}
+
+/* Glowing text & borders */
+.neon-glow-pink {
+  text-shadow: 0 0 5px #ff2a85, 0 0 12px #ff2a85, 0 0 25px #ff007f;
+}
+
+.neon-glow-cyan {
+  text-shadow: 0 0 5px #00f0ff, 0 0 12px #00f0ff, 0 0 25px #00b4d8;
+}
+
+.neon-border-pink {
+  box-shadow: 0 0 15px rgba(255, 42, 133, 0.4), inset 0 0 15px rgba(255, 42, 133, 0.2);
+}
+
+.neon-border-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+/* Vaporwave perspective moving grid */
+.vapor-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 42, 133, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.2) 1px, transparent 1px);
+  transform: perspective(300px) rotateX(60deg);
+  transform-origin: center bottom;
+  animation: grid-scroll 18s linear infinite;
+}
+
+@keyframes grid-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 400px;
+  }
+}
+
+/* Tape reel rotation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 4s linear infinite;
+}

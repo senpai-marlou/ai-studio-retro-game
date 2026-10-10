@@ -1,0 +1,6 @@
+{
+  "name": "Neon Invaders - 80s Vaporwave Space Arcade & Synthwave Deck",
+  "description": "Authentic 80s vaporwave arcade Space Invaders game featuring retro synthwave tracks, audio visualizer, scanline CRT effects, and high scores.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
